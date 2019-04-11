@@ -57,5 +57,5 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: composer/composer
+    repo: zhangdi/blogger
     php:  '7.2'
