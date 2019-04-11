@@ -1,0 +1,24 @@
+{
+    "name": "zhangdi/blogger",
+    "description": "静态博客生成工具",
+    "minimum-stability": "dev",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Zhang Di",
+            "email": "zhangdi_me@163.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "v4.2.5",
+        "symfony/finder": "v4.2.5",
+        "cebe/markdown": "1.2.1",
+        "symfony/filesystem": "v4.2.5",
+        "twig/twig": "v2.7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "src"
+        }
+    }
+}

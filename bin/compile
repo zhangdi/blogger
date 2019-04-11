@@ -1,0 +1,58 @@
+#!/usr/bin/env php
+<?php
+/**
+ * @link http://ipaya.cn/
+ * @copyright Copyright (c) 2016 ipaya.cn
+ * @license http://ipaya.cn/license/
+ */
+
+use Symfony\Component\Finder\Finder;
+
+define('BASE_PATH', dirname(__DIR__));
+
+require BASE_PATH . '/vendor/autoload.php';
+
+$pharName = 'blogger.phar';
+$pharFilename = BASE_PATH . '/' . $pharName;
+
+if (file_exists($pharFilename)) {
+    unlink($pharFilename);
+}
+$phar = new Phar($pharFilename, null, $pharName);
+
+
+$excludeDirs = [
+    'bin',
+    'build',
+    'blog',
+    'target',
+];
+
+
+$phar->startBuffering();
+
+$finder = new Finder();
+$files = $finder->in(BASE_PATH)
+    ->ignoreVCS(true)
+    ->exclude($excludeDirs)
+    ->files();
+
+
+$phar->buildFromIterator($files->getIterator(), BASE_PATH);
+
+$phar->compressFiles(Phar::BZ2);
+$blogger = str_replace('#!/usr/bin/env php', '', file_get_contents(BASE_PATH . '/bin/blogger'));
+$phar->addFromString('bin/blogger', $blogger);
+$stub = <<<'EOF'
+#!/usr/bin/env php
+<?php
+
+Phar::mapPhar('blogger.phar');
+
+require 'phar://blogger.phar/bin/blogger';
+
+__HALT_COMPILER();
+EOF;
+
+$phar->setStub($stub);
+$phar->stopBuffering();
