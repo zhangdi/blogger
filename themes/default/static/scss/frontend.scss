@@ -1,0 +1,39 @@
+/*!
+ * @link http://ipaya.cn/
+ * @copyright Copyright (c) 2016 ipaya.cn
+ * @license http://ipaya.cn/license/
+ */
+
+$fontFamily: Helvetica, Tahoma, Arial, "Microsoft YaHei", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+
+html, body {
+  font-family: $fontFamily !important;
+  background-color: #f8f9fa;
+}
+
+.main-content {
+  min-height: 1000px;
+}
+
+pre {
+  background-color: #EEEEEE;
+  padding: 1rem;
+}
+
+.post-content {
+  min-height: 6rem;
+
+  p {
+    line-height: 2rem;
+  }
+}
+
+.card-lg {
+  .card-body {
+    padding: 3rem;
+  }
+
+  .card-footer {
+    padding: 1.25rem 3rem
+  }
+}

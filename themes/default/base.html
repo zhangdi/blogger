@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link href="https://cdn.bootcss.com/prettify/r298/prettify.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/frontend.css" rel="stylesheet">
+</head>
+<body>
+<nav id="w0" class="navbar-expand-md navbar-dark bg-dark navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">张迪的博客</a>
+    </div>
+</nav>
+<div class="main-content">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark mt-5">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; <a href="mailto:zhangdi_me@163.com">张迪</a> 2019</p>
+    </div>
+    <!-- /.container -->
+</footer>
+
+<script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
+<script src="/static/jquery/jquery.js"></script>
+<script src="/static/bootstrap/js/bootstrap.bundle.js"></script>
+<script>jQuery(function ($) {
+    $("code").addClass("prettyprint");
+    prettyPrint();
+});</script>
+</body>
+</html>

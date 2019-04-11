@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} - {{ siteTitle }}{% endblock %}
+{% block content %}
+{% for post in posts %}
+<div class="container">
+    <div class="card card-lg bg-white mt-5">
+        <div class="card-body">
+            <h2><a href="{{post.url|raw}}">{{ post.title|raw }}</a></h2>
+            <hr/>
+            <div class="text-muted">
+                发布于
+                <time>{{post.publishDatetime|raw}}</time>
+            </div>
+            <hr/>
+            <div class="post-content">
+                {{ post.contents|raw }}
+            </div>
+        </div>
+    </div>
+
+    <nav class="mt-5 d-flex justify-content-center">
+        {% if prevPage != null %}
+        <a class="btn btn-outline-primary ml-3 mr-3" href="{{prevPage}}">上一页</a>
+        {% endif %}
+
+        {% if nextPage != null %}
+        <a class="btn btn-outline-primary ml-3 mr-3" href="{{nextPage}}">下一页</a>
+        {% endif %}
+    </nav>
+</div>
+{% endfor %}
+{% endblock %}

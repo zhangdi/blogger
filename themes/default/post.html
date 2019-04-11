@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - {{ siteTitle }}{% endblock %}
+{% block content %}
+<div class="post-view container mt-5">
+    <div class="card card-lg">
+        <div class="card-body bg-white">
+            <h1 class="text-center mt-3">{{post.title}}</h1>
+
+            <hr class="mt-5"/>
+            <div class="text-muted">
+                发布于
+                <time>{{post.publishDatetime|raw}}</time>
+            </div>
+            <hr/>
+            <div class="post-content">
+                {{ post.contents|raw }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
