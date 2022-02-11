@@ -14,7 +14,7 @@
         "symfony/finder": "v4.2.5",
         "cebe/markdown": "1.2.1",
         "symfony/filesystem": "v4.2.5",
-        "twig/twig": "v2.7.4"
+        "twig/twig": "v2.14.11"
     },
     "autoload": {
         "psr-4": {
